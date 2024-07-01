@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let's explore setTimeout</title>
+</head>
+<body>
+    <h1>Er. Ritul Jain</h1>
+    <button class="stop">Stop</button>
+</body>
+<script>
+    //setTimeout jo ek hi br kmm krga us time stamp k  baad pr setInterval jo h vo hr br utne time baad execute hoga
+
+    const sayRitul = ()=>{
+        console.log("Ritul Jain");
+    }
+    setTimeout(sayRitul,2000)
+    const changeFun = ()=>{
+        document.querySelector('h1').innerHTML = "Engineer Ritul Jain"
+    }
+    const changeMe =  setTimeout(changeFun,2000)
+     
+    document.querySelector('.stop').addEventListener('click',function(){
+       clearTimeout(changeMe)
+    },false)
+    
+     
+</script>
+</html>

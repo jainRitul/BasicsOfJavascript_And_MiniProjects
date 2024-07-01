@@ -1,0 +1,7 @@
+Javascript :-  Synchronous ,  Single Threaded this both are default js properties
+each instruction wait for previous one to get completed
+
+Blocking Code - Synchronous - Block the flow of program
+Non Blocking Code - Asynchronous - Does not Block execution
+
+

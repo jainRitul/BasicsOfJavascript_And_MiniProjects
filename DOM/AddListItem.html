@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding Item</title>
+</head>
+<body style="background-color: black; color: white;">
+    <ul class="lang">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+   function addItem(lang){
+      const li = document.createElement('li')
+      li.innerText = `${lang}`
+      document.querySelector('.lang').appendChild(li)
+   }
+
+   //whenever you add a new  list item DOM will be traversed from root to the end
+   addItem("Java")
+   addItem("Python")
+   addItem("C++")
+
+   function addOptiItem(lang){
+     const li = document.createElement('li')
+     li.appendChild(document.createTextNode(`${lang}`))
+     document.querySelector('.lang').appendChild(li)
+   }
+   addOptiItem("Mojo")
+   addOptiItem("Golang")
+   
+
+   //edit 
+   const secondChild = document.querySelector('li:nth-child(2)')
+   console.log(secondChild);
+  //  secondChild.innerHTML = "JQuery"
+  //  secondChild.textContent = "Solidity"
+
+  const newLi = document.createElement('li')
+  const addText = document.createTextNode("Mojo")
+  newLi.appendChild(addText)
+  secondChild.replaceWith(newLi)
+
+
+  //edit
+  const firstElement = document.querySelector("li:first-child")
+  firstElement.outerHTML = "<li>Ritul</li>"
+
+  //delete
+  const lastEle = document.querySelector('li:last-child')
+  lastEle.remove()
+</script>
+</html>

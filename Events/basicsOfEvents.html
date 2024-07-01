@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event In JS</title>
+    <style>
+        ul li img{
+            height: 150px;
+            width:  200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Amazing Images</h1>
+
+    <div>
+        <ul id="images" style="display: flex; padding: auto; margin: auto; justify-content: space-between;">
+            <li id="one"><img src="https://images.pexels.com/photos/20147077/pexels-photo-20147077/free-photo-of-lenses-of-sparkles.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load" alt="" srcset=""></li>
+
+
+           <!-- //this is one way add event listener but it is not optimized -->
+            <!-- <li id="two" onclick="alert('you again clicked')"> <img src="https://images.pexels.com/photos/19789121/pexels-photo-19789121/free-photo-of-close-up-of-leaves.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load" alt=""></li> -->
+
+
+            <li id="three"><img src="https://images.pexels.com/photos/14850468/pexels-photo-14850468.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load" alt="me"></li>
+            <li id="four"><img src="https://images.pexels.com/photos/26705335/pexels-photo-26705335/free-photo-of-amsterdam-canal.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load" alt=""></li>
+            <li id="five"><img src="https://images.pexels.com/photos/26159412/pexels-photo-26159412/free-photo-of-a-door-with-white-flowers-on-it-and-a-green-bush.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load" alt=""></li>
+            <li><a href="www.google.com"></a>google</li>
+            
+        </ul>
+    </div>
+</body>
+<script>
+
+    //this is one way to add event but it is not an optimized method
+//    document.getElementById('one').onclick = function(){
+//       alert('you clicked')
+//    }
+
+//    document.querySelector('#three').addEventListener('click',function(e){
+//       console.log(e);
+//       console.log(e.target);
+//       alert('You clicked third img')
+//     },false) // yha jo false likha h vo nhi bhi likhte h toh bhi same behave krga kyuki yh jo false h vo default behvaiuor hai iska
+
+
+
+
+    //attachEvent() method used in early stages 
+    // jQuery - on 
+
+    //type , timestamp , preventDefault
+    //target , toElement,srcElement,currentTarget,
+    //clientX,cilentY,screenX , ScreeY
+    //altKey,shiftKey,ctrlKey,keyCode
+
+
+
+
+    // ********************* MOST IMPORTANT TOPIC **********************
+
+    // EVENT PROPOGATION
+
+
+
+    // addEventListener k pass teen chiz hoti 1. koi event jais ki click , 2. koi function , 3. true or false 
+
+
+    // jb 3. parameter ki value true hogi toh hoga EVENT CAPTURING  or jb 3.parameter ki value false hogi toh hoga EVENT BUBBLING 
+
+
+    // EVENT BUBBLING  mtlb ki agr is example ko dekhte h jaise ki above vale  <ul> p bhi ek evenListener or uske child yani ki <li> p bhi ek eventListener h toh phle kya hoga...? toh iska answer h phle <li> ka kmm hoga kyuki agr balloon ki terms m smje toh balloon phle chota hota h phir badaa hota
+    
+        
+    // EVENT CAPTURING agr apko <ul> ka kmm phle krna h toh humko 3parameter ko true rkhna pdga or usse kya hoga phle parent element ka code execute hoga than child
+
+    //default behaviour ko bhi hum rok skte h kaise toh uska answer h e.preventDefault() method ko use krke
+
+    // EVENT Propogation ko bhi stop kr skte by using stopPropogation() method
+
+    //example of event bubbling 
+    // document.getElementById('images').addEventListener('click',function(e){
+    //    console.log('use clicked ul');
+    // },false)
+    // document.getElementById('four').addEventListener('click',function(e){
+    //    console.log('use clicked four');
+    // },false)
+
+
+
+    //example of event capturing
+    // document.getElementById('images').addEventListener('click',function(e){
+    //    console.log('use clicked ul');
+    // },true)
+    // document.getElementById('four').addEventListener('click',function(e){
+    //    console.log('use clicked four');
+    // },true)
+
+    //let's remove the element onClick
+    document.querySelector('#images').addEventListener('click',function(e){
+        if(e.target.tagName === 'IMG'){
+            let removeIt = e.target.parentNode
+            console.log(removeIt);
+            removeIt.remove()
+        }
+     
+        // removeIt.remove()
+        // this both like will work same
+        // removeIt.parentNode.removeChild(removeIt)
+    },false)
+</script>
+</html>

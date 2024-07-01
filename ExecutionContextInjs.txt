@@ -1,0 +1,9 @@
+there are three types of execution context in js :-
+1 . Global execution context
+2 . Functional execution context
+3 . Eval execution context
+
+
+code is exceuted in two phases:- 
+1.Memory creation phases : only Memory is allocated no calculation
+2.Execution phase

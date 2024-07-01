@@ -1,0 +1,30 @@
+body{
+    background-color: black;
+    color: rgb(189, 145, 34);
+  
+    
+}
+h1{
+    margin-top: 200px;
+    text-align: center;
+}
+h1 span{
+   font-style: italic;
+   font-family: 'Courier New', Courier, monospace;
+}
+div{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+#start , #stop{
+    height:  50px;
+    width: 120px;
+    margin: auto;
+    padding: auto;
+    background-color:  rgb(189, 145, 34);
+    color: black;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin-top: 10px;
+}

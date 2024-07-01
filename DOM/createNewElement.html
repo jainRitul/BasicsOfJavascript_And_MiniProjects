@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to create new element</title>
+</head>
+<body style="color: white; background-color: black;">
+    <div class="parent">
+        <div class="child">Monday</div>
+        <div class="child">Tuesday</div>
+        <div class="child">Wednesday</div>
+        <div class="child">Thrusday</div>
+    </div>
+</body>
+<script>
+    const parent = document.querySelector('.parent');
+    // console.log(parent);
+    // console.log(parent.children);
+    // console.log(parent.children[0]);
+
+    for(let  i = 0;i<parent.children.length;i++)
+        console.log(parent.children[i].innerHTML);
+    
+    parent.children[0].style.color = "green"
+    console.log(parent.firstElementChild.innerHTML);
+    console.log(parent.lastElementChild.innerHTML);
+
+    const dayOne = document.querySelector('.child')
+    console.log(dayOne);
+    console.log(dayOne.nextElementSibling);
+    console.log(dayOne.parentElement);
+
+    //in child node it also consider the line breaks internally js make dom considering all the line breaks and all
+    console.log("Nodes:",parent.childNodes);
+</script>
+</html>
